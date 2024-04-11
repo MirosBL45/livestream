@@ -1,4 +1,5 @@
 import { Poppins } from 'next/font/google';
+import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
 
@@ -13,11 +14,13 @@ import LogoText from '@/app/custom-components/LogoText';
 
 export function Logo() {
   return (
-    <div className="flex flex-col items-center gap-y-4">
-      <JustLogo />
-      <div className={cn('flex flex-col items-center', font.className)}>
-        <LogoText />
+    <Link href={'/'}>
+      <div className="hidden md:flex items-center gap-x-4 hover:opacity-75 transition">
+        <JustLogo />
+        <div className={cn(font.className)}>
+          <LogoText />
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
